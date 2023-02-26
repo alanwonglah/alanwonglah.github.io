@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Life isth hard</title>
+	<style>
+		img {
+    		position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body onload="loadRandomImage()">
+	<img id="randomImage" src="" alt="Random Image">
+	
+	<script>
+		function loadRandomImage() {
+			// Define the folder containing your images
+			const folderPath = "./";
+
+			// Define an array of your image names (include the file extension)
+			const numImages = 1;
+			const imageNames = [];
+			for (let i = 1; i <= numImages; i++) {
+  				imageNames.push(("00" + i).slice(-2) + ".jpg");
+			}
+
+			// Generate a random index within the bounds of the array
+			const randomIndex = Math.floor(Math.random() * imageNames.length);
+
+			// Construct the full file path of the image
+			const imagePath = folderPath + imageNames[randomIndex];
+
+			// Load the image into the <img> element
+			document.getElementById("randomImage").src = imagePath;
+		}
+	</script>
+</body>
+</html>
